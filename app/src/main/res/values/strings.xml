@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">DroidRestaurant</string>
-    <style name="Themes">
-        <item name="android:textColorPrimary">@color/white</item>
-    </style>
+    <string name="home_welcome">Bienvenue\nchez\n</string>
+    <string name="home_welcome2">DroidRestaurant</string>
+    <string name="home_starters">Entree</string>
+    <string name="home_dish">Plats</string>
+    <string name="home_desserts">Desserts</string>
+    <string name="title_activity_category">CategoryActivity</string>
 
 </resources>
