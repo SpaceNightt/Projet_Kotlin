@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DroidRestaurant</string>
+    <style name="Themes">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+</resources>
