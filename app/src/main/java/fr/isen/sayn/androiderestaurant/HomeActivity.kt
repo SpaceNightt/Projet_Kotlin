@@ -12,7 +12,6 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
@@ -41,8 +40,8 @@ class HomeActivity : ComponentActivity() {
                     topBar = {
                         TopAppBar(
                             colors = topAppBarColors(
-                                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                                titleContentColor = MaterialTheme.colorScheme.primary,
+                                containerColor = MaterialTheme.colorScheme.primary,
+                                titleContentColor = Color.White,
                             ),
                             title = {
                                 Text(stringResource(id = R.string.app_name))
@@ -50,8 +49,9 @@ class HomeActivity : ComponentActivity() {
                         )
                     },
                 ){
-                    Home(innerPaddingValues = it)
+                    Home(innerPaddingValues = it){category ->
                         goToCategory(category)
+                    }
                 }
             }
         }
@@ -61,7 +61,7 @@ class HomeActivity : ComponentActivity() {
             this,
             "Vous avez cliquer sur $category",
             Toast.LENGTH_SHORT
-        )
+        ).show()
         val intent = Intent(this,CategoryActivity::class.java)
         intent.putExtra("category", category)
         startActivity(intent)
@@ -69,9 +69,12 @@ class HomeActivity : ComponentActivity() {
 }
 
 @Composable
-fun Home(innerPaddingValues: PaddingValues) {
+fun Home(innerPaddingValues: PaddingValues, goToCategory: (String) -> Unit) {
     val context = LocalContext.current
-    val starters =
+    val starters = context.getString(R.string.home_starters)
+    val dish = context.getString(R.string.home_dish)
+    val desserts = context.getString(R.string.home_desserts)
+
     Column(
         modifier = Modifier
             .padding(innerPaddingValues)
