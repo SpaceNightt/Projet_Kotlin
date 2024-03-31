@@ -121,9 +121,8 @@ fun CategoryComponent(category: String, dishes: List<Items>, onDishClicked: (Ite
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         // Afficher tous les prix
-                        menuItem.prices.forEach { price ->
                             Text(
-                                text = "Prix : $price €",
+                                text = "Prix : ${menuItem.prices[0].price ?: "Non spécifié"} €",
                                 textAlign = TextAlign.Center,
                                 fontSize = 16.sp,
                             )
@@ -133,4 +132,3 @@ fun CategoryComponent(category: String, dishes: List<Items>, onDishClicked: (Ite
             }
         }
     }
-}
